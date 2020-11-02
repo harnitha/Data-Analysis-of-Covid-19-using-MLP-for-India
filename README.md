@@ -3,6 +3,10 @@ TARP project that consists of a dashboard and prediction model for covid cases i
 
 TARP is part my college curriculum.
 
+Contributers:
+HARNITHA [17BIT0085]
+GAYATHRI [17BIT0049]
+
 Coronavirus has made the world to a standstill by affecting billions of people worldwide. 
 Doctors, nurses and other frontline workers are struggling hard to handle the situation. 
 This project aims to implement the future scope of the research paper “Yadav, R. S. (2020). Data analysis of COVID-2019 epidemic using machine learning methods: a case study of India. International Journal of Information Technology, 1-10.” 
