@@ -4,6 +4,7 @@ import dash_html_components as html
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
+#import prediction
 
 app = dash.Dash(__name__)
 server= app.server
@@ -103,7 +104,7 @@ data1 = pd.read_csv('https://api.covid19india.org/csv/latest/statewise_tested_nu
 task = data1[['Updated On', 'State', 'Total Tested']].copy()
 task.tail()
 
-month = {"January": '01', "February": '02', 'March': '03', 'April': '04', 'May': '05', 'June': '06', 'Jun': '06', 'July': '07', 'Jul': '07',
+month = {"January": '01', "February": '02', 'March': '03', 'April': '04', 'May': '05', 'June': '06', 'Jun': '06', 'July': '07',
          'August': '08', 'September': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'}
 DAY = {1: '01', 2: '02', 3: '03', 4: '04', 5: '05', 6: '06', 7: '07', 8: '08', 9: '09'}
 d = date.split("-")
@@ -125,6 +126,18 @@ fig7 = px.bar(tested.sort_values('Total Tested', ascending=False).sort_values('T
 fig7.update_traces(marker_color=plp, opacity=1, )
 fig7.update_layout(margin=dict(t=80, l=0, r=0, b=0))
 
+
+
+
+#prediction
+data=pd.read_csv('predictionCovid.csv')
+figPred = go.Figure()
+figPred.add_trace(go.Scatter(x=data.Date, y=data.Predicted,
+                    mode='lines+markers',
+                    name='Predicted Cases'))
+figPred.add_trace(go.Scatter(x=data.Date, y=data.Actual,
+                    mode='lines+markers',
+                    name='Actual Cases'))
 
 
 
@@ -206,6 +219,7 @@ app.layout = html.Div(children=[
     html.Div(children=''' '''), dcc.Graph(id='fig5',figure=fig5),
     html.Div(children=''' '''), dcc.Graph(id='fig6',figure=fig6),
     html.Div(children=''' '''), dcc.Graph(id='fig7',figure=fig7),
+    html.Div(children='''PREDICTION OF CONFIRMED CASES'''), dcc.Graph(id='figPred',figure=figPred),
     html.Div(children=''' '''), dcc.Graph(id='fig8',figure=fig8),
     html.Div(children=''' '''), dcc.Graph(id='fig9',figure=fig9),
     html.Div(children=''' '''), dcc.Graph(id='fig10',figure=fig10),
