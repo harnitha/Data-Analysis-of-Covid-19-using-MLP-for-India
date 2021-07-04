@@ -4,7 +4,7 @@ import dash_html_components as html
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
-#import prediction
+import addPred
 
 app = dash.Dash(__name__)
 server= app.server
@@ -130,6 +130,7 @@ fig7.update_layout(margin=dict(t=80, l=0, r=0, b=0))
 
 
 #prediction
+addPred.addRecord()
 data=pd.read_csv('predictionCovid.csv')
 figPred = go.Figure()
 figPred.add_trace(go.Scatter(x=data.Date, y=data.Predicted,
