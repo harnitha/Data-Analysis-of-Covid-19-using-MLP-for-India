@@ -104,7 +104,7 @@ data1 = pd.read_csv('https://api.covid19india.org/csv/latest/statewise_tested_nu
 task = data1[['Updated On', 'State', 'Total Tested']].copy()
 task.tail()
 
-month = {"January": '01', "February": '02', 'March': '03', 'April': '04', 'May': '05', 'June': '06', 'Jun': '06', 'July': '07',
+month = {"January": '01', "February": '02', 'March': '03', 'April': '04', 'May': '05', 'June': '06', 'Jun': '06', 'July': '07', 'Jul': '07',
          'August': '08', 'September': '09', 'Oct': '10', 'Nov': '11', 'Dec': '12'}
 DAY = {1: '01', 2: '02', 3: '03', 4: '04', 5: '05', 6: '06', 7: '07', 8: '08', 9: '09'}
 d = date.split("-")
